@@ -1,4 +1,5 @@
 class ProyectosController < ApplicationController
+  before_action :authenticate_user! 
   before_action :set_proyecto, only: [:show, :edit, :update, :destroy]
 
   # GET /proyectos
@@ -69,6 +70,6 @@ class ProyectosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def proyecto_params
-      params.require(:proyecto).permit(:nombre, :imagen, :descripcion)
+      params.require(:proyecto).permit(:nombre, :imagen)
     end
 end

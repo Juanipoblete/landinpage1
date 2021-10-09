@@ -19,11 +19,10 @@
           <tr>
             <td><%= proyecto.nombre %></td>
             <td><%= proyecto.imagen %></td>
-            <td><%= proyecto.descripcion %></td>
-            <td><%= link_to 'Show', proyecto, class: "btn btn-primary" %></td>
-            <td><%= link_to 'Edit', edit_proyecto_path(proyecto), class: "btn btn-secundary" %></td>
-            <td><%= link_to 'Destroy', proyecto,
-             method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %></td>
+            <td><%= link_to 'Mostrar', proyecto, class: "btn btn-primary" %></td>
+            <td><%= link_to 'Editar', edit_proyecto_path(proyecto), class: "btn btn-secondary" %></td>
+            <td><%= link_to 'Eliminar', proyecto,
+             method: :delete, data: { confirm: 'estas seguro?' },class: "btn btn-danger" %></td>
            </tr>
          <% end %>
        </tbody>
@@ -31,7 +30,7 @@
 
      <br>
 
-    <%= link_to 'New Proyecto',
+    <%= link_to 'Nuevo Proyecto',
      new_proyecto_path,
      class: "btn btn-primary mb-4" %>
    </div>
