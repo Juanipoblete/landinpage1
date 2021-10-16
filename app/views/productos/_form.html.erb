@@ -27,10 +27,12 @@
   </div>
   <div class="field">
     <%= form.label :categorium_id %>
-    <%= form.text_field :categorium_id %>
+    <select name="producto[categorium_id]">
+      <% @categorias.each do |t| %>
+      <option value="<%= t.id %>"><%= t.nombre %></option>
+      <% end %>
+    </select>
   </div>
-
-  
 
   <div class="actions">
     <%= form.submit %>

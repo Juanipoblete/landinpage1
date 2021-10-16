@@ -1,8 +1,10 @@
+<link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+rel="stylesheet" >
 <p id="notice"><%= notice %></p>
 
 <h1>Productos</h1>
 
-<table>
+<table id="my Table" class="table">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -15,10 +17,10 @@
     <% @productos.each do |producto| %>
       <tr>
         <td><%= producto.nombre %></td>
-        <td><%= producto.categorium_id %></td>
-        <td><%= link_to 'Show', producto %></td>
-        <td><%= link_to 'Edit', edit_producto_path(producto) %></td>
-        <td><%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= producto.categorium.nombre %></td>
+        <td><%= link_to 'Mostrar', producto %></td>
+        <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
+        <td><%= link_to 'Quitar', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +29,12 @@
 <br>
 
 <%= link_to 'New Producto', new_producto_path %>
+<scrip src="https://code.jquery.com/jquery-3.6.0.min.js"></scrip>
+
+<scrip src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></scrip>
+
+<scrip type="text/javascript">
+  $(document).ready(function () {
+   $('#myTable').DataTable();
+  } );
+</scrip>
