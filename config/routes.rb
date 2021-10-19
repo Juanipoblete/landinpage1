@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+
+  resources :orden_entregas
   resources :orden_productos
   resources :orden_proyectos
-  resources :ordens
+  resources :ordens do
+    collection do
+      post :carrito
+    end
+  end
   resources :clientes
-  resources :productos do 
+  resources :productos do
+    member do
+      get :comprar
+    end 
     collection do
     get :filter
    end
