@@ -1,6 +1,7 @@
 class OrdensController < ApplicationController
   before_action :set_orden, only: [:show, :edit, :update, :destroy]
 
+  layout "admin"
   # GET /ordens
   # GET /ordens.json
   def index
@@ -8,6 +9,9 @@ class OrdensController < ApplicationController
   end
 
   def carrito
+    @qty = params[:cantidad]
+    @producto_id = params[:producto_id]
+
   end
 
   # GET /ordens/1
