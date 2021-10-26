@@ -1,5 +1,6 @@
 <link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
 rel="stylesheet" >
+
 <p id="notice"><%= notice %></p>
 
 <h1>Productos</h1>
@@ -8,8 +9,8 @@ rel="stylesheet" >
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Categorium</th>
-      <th colspan="3"></th>
+      <th>Categoria</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -20,7 +21,7 @@ rel="stylesheet" >
         <td><%= producto.categorium.nombre %></td>
         <td><%= link_to 'Mostrar', producto %></td>
         <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
-        <td><%= link_to 'Quitar', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', producto, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,13 +29,17 @@ rel="stylesheet" >
 
 <br>
 
-<%= link_to 'New Producto', new_producto_path %>
+<%= link_to 'Nuevo Producto', new_producto_path %>
 <scrip src="https://code.jquery.com/jquery-3.6.0.min.js"></scrip>
 
 <scrip src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></scrip>
 
-<scrip type="text/javascript">
-  $(document).ready(function () {
-   $('#myTable').DataTable();
-  } );
-</scrip>
+<script type="text/javascript">
+  $(document).ready(function()
+   {$('#myTable').DataTable({
+     language: {
+       url: "//cdn.datatables.net/plug-ins/1.11.3/i18n/es-cl.json"
+      }
+    });
+  });
+</script>

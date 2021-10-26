@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :rol_usuarios
+  resources :rols
   resources :orden_entregas
   resources :orden_productos
   resources :orden_proyectos
   resources :ordens do
     collection do
       post :carrito
+      get :carrito
     end
   end
   resources :clientes

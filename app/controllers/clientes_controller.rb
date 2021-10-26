@@ -1,6 +1,7 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
 
+ layout "admin"
   # GET /clientes
   # GET /clientes.json
   def index
@@ -9,7 +10,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes/1
   # GET /clientes/1.json
-  def show
+  def show    
   end
 
   # GET /clientes/new

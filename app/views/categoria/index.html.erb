@@ -21,9 +21,12 @@ rel="stylesheet" >
         <td><%= categorium.nombre %></td>
         <td><%= categorium.imagen %></td>
          <td><%= categorium.nproductos %></td>
-        <td><%= link_to 'Mostrar', categorium %></td>
-        <td><%= link_to 'Editar', edit_categorium_path(categorium) %></td>
-        <td><%= link_to 'Eliminar', categorium, method: :delete, data: { confirm: 'Estas Seguro?' } %></td>
+        <td><%= link_to 'Mostrar', categorium,
+        class: "btn btn-primary" %></td>
+        <td><%= link_to 'Editar', edit_categorium_path(categorium),
+        class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Eliminar', categorium, method: :delete, data: { confirm: 'Estas Seguro?' },
+        class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,7 +34,7 @@ rel="stylesheet" >
 
 <br>
 
-<%= link_to 'New Categorium', new_categorium_path %>
+<%= link_to 'Nueva categoria', new_categorium_path %>
 <script
 https://code.jquery.com/jquery-3.6.0.min.js%22></script>
 <script
@@ -39,7 +42,11 @@ src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
   $(document).ready(function()
-   {$('#myTable').DataTable();
+   {$('#myTable').DataTable({
+     language: {
+       url: "//cdn.datatables.net/plug-ins/1.11.3/i18n/es-cl.json"
+      }
+    });
   });
 </script>
 
