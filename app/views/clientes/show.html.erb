@@ -1,37 +1,43 @@
 <div class="row">
   <div class="col-4">
     <div class="card">
-     <div class="card-header">                 Opciones 
+      <div class="card-header">
+        Opciones
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-         <a href="#">Mi Perfil</a>
-        </li> 
-         <li class="list-group-item">
-         <a href="#">Ordenes</a>
+          <a href="/clientes/<%= @cliente.id %>/?vista=perfil">Mi Perfil</a>
         </li>
-         <li class="list-group-item">
-         <a href="#">Cambiar Contraseña</a>
+        <li class="list-group-item">
+          <a href="/clientes/<%= @cliente.id %>/?vista=ordenes">
+            Ordenes
+          </a>
         </li>
-         <li class="list-group-item">
-         <a href="#">Salir</a>
+        <li class="list-group-item">
+          <a href="#">Cambiar contrasena</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#">Salir</a>
         </li>
       </ul>
     </div>
- </div>
-  <div class="col-8"> 
+  </div>
+  <div class="col-8">
     <div class="card">
       <div class="card-header">
-       Mi Perfil
+      <%= @vista.to_s.capitalize %>
       </div>
       <div class="card-body">
-       <%= render "form", cliente: @cliente %>
+        <% if @vista == "perfil" %>
+          <%= render 'form', cliente: @cliente %>
+        <% elsif @vista == "ordenes" %>
+          <%= render 'ordenes', cliente: @cliente %>
+        <% end %>
       </div>
-    </div>  
+    </div>
   </div>
 </div>
-  <%= link_to 'Editar', edit_cliente_path(@cliente), 
-     class: "btn btn-primary mb-4" %> |
-  <%= link_to 'Back', clientes_path,
-    class: "btn btn-secundary mb-4" %>    
-</div>
+
+<%= link_to 'Editar', edit_cliente_path(@cliente) %> |
+<%= link_to 'Volver', clientes_path %><div class="row">
+ 
