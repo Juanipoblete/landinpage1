@@ -15,6 +15,12 @@
               <%= @orden.cliente.nif %>
               </td>
             </tr>
+            <tr>
+              <td>
+              <strong>carreo: </strong>
+              <%= @orden.cliente.user.email %>
+              </td>
+            </tr>
           </tbody>
         </table>
       </td>
@@ -73,11 +79,16 @@
       <%= t.precio %>
       </td>
       <td>
-      
-      
+      <%= t.precio * t.cantidad %>
       </td>
     </tr>
     <% end %>
+    <tr>
+    <td></td>
+    <td></td>
+    <td><strong>Total</strong></td>
+    <td><%= @orden.get_total %></td>
+    </tr>
   </tbody>
 </table>
 
